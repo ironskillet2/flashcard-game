@@ -1,5 +1,5 @@
-let winAmount = 0;
-let lossAmount = 0;
+var winAmount = 0;
+var lossAmount = 0;
 
 const begins = () => {
 
@@ -15,9 +15,21 @@ let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) != ind
 let chosenCard = [];
 let englishWord = [];
 let matchingJapanese = [];
-let cards = []
+let cards = [];
+var reset = 0;
+var percent = 0;
+var total = winAmount + lossAmount
 
-
+ if (winAmount > 0 && lossAmount === 0){
+     percent = "100";
+ } else if (winAmount === 0 && lossAmount > 0){
+     percent = "0";
+ } else if (winAmount === 0 && lossAmount === 0){
+    percent = " "; 
+ } else {
+    percent = ((winAmount / total)*100).toFixed(0);   
+ }
+ 
     const randomCards = arr => {
     i = 0;
     while (i < 6)  {
@@ -38,9 +50,18 @@ let cards = []
         if (guess === answer) {
             document.querySelector(".answer").textContent = "CORRECT!";
             winAmount = winAmount + 1;
+            const wins = document.querySelector(".wins");
+            wins.textContent = "WINS: " + winAmount;
             begins();
         } else {
             document.querySelector(".answer").textContent = "TRY AGAIN!";
+            lossAmount = lossAmount + 1;
+            const losses = document.querySelector(".losses");
+            losses.textContent = "LOSSES: " + lossAmount;
+            reset = reset + 1;
+            if (reset === 1) {
+                begins();
+            }
         }
     }
 
@@ -70,9 +91,7 @@ let cards = []
     guess4.onclick = (e) => match(guess4.textContent, matchingJapanese)
     guess5.onclick = (e) => match(guess5.textContent, matchingJapanese)
     guess6.onclick = (e) => match(guess6.textContent, matchingJapanese)
+    const percentage = document.querySelector(".percent");
+    percentage.textContent = "%: " + percent;
 
 }
-const wins = document.querySelector(".wins");
-wins.textContent += winAmount;
-const losses = document.querySelector(".losses");
-losses.textContent += lossAmount;
