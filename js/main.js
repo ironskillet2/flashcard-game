@@ -3,12 +3,12 @@ var lossAmount = 0;
 
 const begins = () => {
 
-arr1 = ['food', 'tabemono'];
-arr2 = ['fruit', 'kudamono'];
-arr3 = ['vegetable', 'yasai'];
-arr4 = ['dog', 'inu'];
-arr5 = ['big', 'ooki'];
-arr6 = ['cat', 'neko'];
+arr1 = ['food', 'たべもの'];
+arr2 = ['fruit', 'くだもの'];
+arr3 = ['vegetable', 'やさい'];
+arr4 = ['dog', 'いぬ'];
+arr5 = ['big', 'おおきい'];
+arr6 = ['cat', 'ねこ'];
 allArr = [arr1, arr2, arr3, arr4, arr5, arr6];
 
 let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) != index)
@@ -19,6 +19,7 @@ let cards = [];
 var reset = 0;
 var percent = 0;
 var total = winAmount + lossAmount
+var encouragement = " Good Luck! ";
 
  if (winAmount > 0 && lossAmount === 0){
      percent = "100";
@@ -91,7 +92,10 @@ var total = winAmount + lossAmount
     guess4.onclick = (e) => match(guess4.textContent, matchingJapanese)
     guess5.onclick = (e) => match(guess5.textContent, matchingJapanese)
     guess6.onclick = (e) => match(guess6.textContent, matchingJapanese)
+
     const percentage = document.querySelector(".percent");
     percentage.textContent = "%: " + percent;
+    const message = document.querySelector(".message")
+    message.textContent = encouragement;
 
 }
