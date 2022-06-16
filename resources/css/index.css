@@ -6,6 +6,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    height: 800px;
 }
 
 .start-container {
@@ -31,8 +32,9 @@ body {
 .question {
     width: 400px; 
     height: 300px;
-    background-color: #495CEB;
-    color: white;
+    background-image: url(/resources/images/main-background.jpg);
+    background-size: 120%;
+    color: rgb(20, 15, 15);
     border-radius: 5%;
     margin: 10px;
     font-size: 50px;
@@ -41,18 +43,25 @@ body {
 .item {
     width: 100px; 
     height: 100px;
-    background-color: #569E29;
+    border: 2px solid rgb(6, 6, 59);
+    background: url(/resources/images/maki-option.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
     margin: 10px;
     cursor: pointer;
-    border: none;
     box-shadow: 5px 5px 5px #566B29;
+    padding-top: 12px;
 }
 
-.item:hover,
 .begin:hover,
 .reset:hover {
     background-color: rgb(6, 6, 59);
+    box-shadow: 5px 5px 5px rgb(60, 60, 116);
+}
+
+.item:hover {
     box-shadow: 5px 5px 5px rgb(60, 60, 116);
 }
 
@@ -92,6 +101,7 @@ body {
 
 .answer {
     box-shadow: 0 0 10px #A35143;;
+    background-color: rgb(247, 247, 247);
 }
 
 .score-container {
@@ -112,6 +122,7 @@ body {
     align-items: center;
     font-weight: 600;
     margin: 0 3px;
+    background-color: rgb(247, 247, 247);
 }
 
 .message {
@@ -155,6 +166,7 @@ body {
     .item {
         width: 80px; 
         height: 50px;
+        font-size: 12px;
     }
 
     .score-container {
