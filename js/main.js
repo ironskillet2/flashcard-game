@@ -3,34 +3,38 @@ var lossAmount = 0;
 
 const begins = () => {
 
-arr1 = ['food', 'たべもの'];
-arr2 = ['fruit', 'くだもの'];
-arr3 = ['vegetable', 'やさい'];
-arr4 = ['dog', 'いぬ'];
-arr5 = ['big', 'おおきい'];
-arr6 = ['cat', 'ねこ'];
-allArr = [arr1, arr2, arr3, arr4, arr5, arr6];
+    document.querySelector(".begin").disabled = true;
 
-let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) != index)
-let chosenCard = [];
-let englishWord = [];
-let matchingJapanese = [];
-let cards = [];
-var reset = 0;
-var percent = 0;
-var total = winAmount + lossAmount
-var encouragement = " Good Luck! ";
+    arr1 = ['food', 'たべもの'];
+    arr2 = ['fruit', 'くだもの'];
+    arr3 = ['vegetable', 'やさい'];
+    arr4 = ['dog', 'いぬ'];
+    arr5 = ['big', 'おおきい'];
+    arr6 = ['cat', 'ねこ'];
+    allArr = [arr1, arr2, arr3, arr4, arr5, arr6];
 
- if (winAmount > 0 && lossAmount === 0){
-     percent = "100";
- } else if (winAmount === 0 && lossAmount > 0){
-     percent = "0";
- } else if (winAmount === 0 && lossAmount === 0){
+    let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) != index)
+    let chosenCard = [];
+    let englishWord = [];
+    let matchingJapanese = [];
+    let cards = [];
+    var reset = 0;
+    var percent = 0;
+    var total = winAmount + lossAmount
+    const wins = document.querySelector(".wins");
+    const losses = document.querySelector(".losses");
+    const resetter = document.querySelector(".reset");
+
+    if (winAmount > 0 && lossAmount === 0){
+        percent = "100";
+    } else if (winAmount === 0 && lossAmount > 0){
+        percent = "0";
+    } else if (winAmount === 0 && lossAmount === 0){
     percent = " "; 
- } else {
+    } else {
     percent = ((winAmount / total)*100).toFixed(0);   
- }
- 
+    }
+
     const randomCards = arr => {
     i = 0;
     while (i < 6)  {
@@ -43,21 +47,18 @@ var encouragement = " Good Luck! ";
     chosenCard = cards[Math.floor(Math.random()*cards.length)];
     englishWord = chosenCard[0];
     matchingJapanese = chosenCard[1];
-    console.log(cards);
+  
     }
-    const answer = document.querySelector(".answer");
 
     const match = (guess, answer) => { 
         if (guess === answer) {
             document.querySelector(".answer").textContent = "CORRECT!";
             winAmount = winAmount + 1;
-            const wins = document.querySelector(".wins");
             wins.textContent = "WINS: " + winAmount;
             begins();
         } else {
             document.querySelector(".answer").textContent = "TRY AGAIN!";
             lossAmount = lossAmount + 1;
-            const losses = document.querySelector(".losses");
             losses.textContent = "LOSSES: " + lossAmount;
             reset = reset + 1;
             if (reset === 1) {
@@ -66,12 +67,28 @@ var encouragement = " Good Luck! ";
         }
     }
 
+    const resets = () => {
+        wins.textContent = "WINS: " + 0;
+        losses.textContent = "LOSSES: " + 0;
+        percentage.textContent = "%: " + 0;
+        guess1.innerHTML = '';
+        guess2.innerHTML = '';
+        guess3.innerHTML = '';
+        guess4.innerHTML = '';
+        guess5.innerHTML = '';
+        guess6.innerHTML = '';
+        word.innerHTML = '';
+        document.querySelector(".begin").disabled = false;
+    }
+    resetter.onclick = (e) =>resets()
+
     randomCards(allArr);
     console.log(chosenCard);
     console.log(englishWord);
     console.log(matchingJapanese);
 
-    const word = document.getElementById('englishWordDis').innerHTML = englishWord;
+    const word = document.getElementById('englishWordDis');
+    word.textContent = englishWord;
     const guess1 = document.querySelector("#slot1");
     guess1.textContent = cards[0][1];
     const guess2 = document.querySelector("#slot2");
@@ -99,3 +116,4 @@ var encouragement = " Good Luck! ";
     message.textContent = encouragement;
 
 }
+

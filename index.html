@@ -8,7 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-    <button class="begin" onclick="begins()">BEGIN</button>
+    <div class="start-container">
+        <button class="begin" onclick="begins()">BEGIN</button>
+        <button class="reset" onclick="resets()">RESET</button>
+    </div>
     <div class="main-container">
         <div class="question-container">
             <div id="englishWordDis" class="question"></div>
@@ -28,7 +31,6 @@
         <div class="losses">LOSSES: </div>
         <div class="percent">%:</div>
     </div>
-    <div class="message"></div>
     
 </body>
     <script src="./js/main.js"></script>
