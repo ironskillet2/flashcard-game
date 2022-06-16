@@ -44,7 +44,7 @@ body {
     width: 100px; 
     height: 100px;
     border: 2px solid rgb(6, 6, 59);
-    background: url(/resources/images/maki-option.jpg);
+    background: url(https://github.com/ironskillet2/flashcard-game/blob/main/resources/images/maki-option.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
