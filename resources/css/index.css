@@ -141,7 +141,7 @@ body {
     .start-container {
         margin: auto;
         justify-content: space-between;
-        width: 500px;
+        max-width: 500px;
     }
     .main-container {
         flex-direction: column;
